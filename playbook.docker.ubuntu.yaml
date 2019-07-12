@@ -1,0 +1,8 @@
+-
+  name: Update ubuntu server
+  hosts: all
+  tasks:
+    -
+      name: Update using apt Update
+      apt:
+        update_cache: yes
