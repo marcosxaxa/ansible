@@ -1,0 +1,21 @@
+-
+  name: Try a loop
+  hosts: localhost
+  become: yes
+  vars:
+    packages:
+      - vim
+      - lynx
+
+  tasks:
+    -
+      name: Update sources
+      apt:
+        update_cache: yes
+
+    -
+      name: Install packages
+      apt:
+        name: "{{ item }}"
+        state: latest
+      with_items: '{{ packages }}'

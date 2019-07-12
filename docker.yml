@@ -1,0 +1,79 @@
+---
+ - hosts: all
+   remote_user: centos
+   become: true
+
+   tasks:
+        - name: update OS
+          yum: name=* state=latest
+
+        - name: install latest version of docker
+          raw: curl -fsSL https://get.docker.com | bash
+          remote_user: centos
+          become: true
+
+        - name: Enable docker service
+          systemd:
+                name: docker
+                enabled: yes
+                masked: no
+
+        - name: Add k8s repository from the local server to remote
+          copy:
+            src: kubernetes.repo
+            dest: /etc/yum.repos.d/
+            owner: root
+            mode: 0644
+          remote_user: centos
+          become: true
+
+#        - selinux:
+#                state: disabled
+
+        - name: Setenforce 0
+          raw: setenforce 0
+
+
+        - name: install k8s components 
+          yum: name={{ item }} state=latest
+          with_items:
+            - kubelet
+            - kubeadm
+            - kubectl
+
+        - name: Enable k8s components
+          systemd: name={{item}}
+          with_items:
+             - kubelet
+             - kubeadm
+             - kubectl
+          enabled: yes
+          masked: no
+
+        - name: Copy k8s kernel parameters to remote server
+          copy:
+            src: k8s.conf
+            dest: /etc/sysctl.d/
+            owner: root
+            mode: 0777
+
+        - name: Reload kernel parameters
+          raw: sysctl --system
+
+        - name: Sed into kubeadm
+          raw: sed -i "s/cgroup-driver=systemd/cgroup-driver=cgroupfs/g" /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+
+        - name: Daemon reload systemd
+          systemd: 
+            daemon_reload: yes
+
+        - name: Restart kubelet
+          systemd:
+            name: kubelet
+            state: restarted
+
+
+        - name: Start docker
+          systemd:
+            name: docker
+            state: started

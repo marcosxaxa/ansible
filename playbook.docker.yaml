@@ -1,0 +1,32 @@
+-
+  name: Install and configure docker on centos virtual machine
+  hosts: all
+  vars:
+    packages:
+      - vim
+      - net-tools
+
+  tasks:
+    -
+      name: Change hostname to docker_host
+      hostname:
+        name: docker_host
+
+    -
+      name: Update system using yum update
+      yum:
+         name: "*"
+         state: latest
+
+    -
+      name: Install latest version of docker
+      yum:
+         name: docker
+         state: latest
+
+    -
+      name: Start docker daemon and enable to start on boot
+      systemd:
+          name: docker
+          enabled: yes
+          state: started
