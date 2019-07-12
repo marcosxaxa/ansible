@@ -19,6 +19,14 @@
          state: latest
 
     -
+      name: Install packages
+      yum:
+        name: "{{ items }}"
+        state: latest
+      with_items: '{{ packages }}'
+
+
+    -
       name: Install latest version of docker
       yum:
          name: docker
