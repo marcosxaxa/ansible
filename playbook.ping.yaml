@@ -1,10 +1,9 @@
 -
   name: Ping localhost
-  hosts: localhost
+  hosts: ubuntu
   tasks:
 
 
     -
       name: Ping localhost server
       ping:
-        
