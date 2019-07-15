@@ -1,0 +1,35 @@
+-
+  name: Install and configure docker on centos virtual machine
+  hosts: kubernetes
+  vars:
+    packages:
+      - vim
+      - net-tools
+
+  tasks:
+    -
+      name: Update system using yum update
+      yum:
+         name: "*"
+         state: latest
+
+    -
+      name: Install packages
+      yum:
+        name: '{{ packages }}'
+        state: latest
+
+
+
+    -
+      name: Install latest version of docker
+      yum:
+         name: docker
+         state: latest
+
+    -
+      name: Start docker daemon and enable to start on boot
+      systemd:
+          name: docker
+          enabled: yes
+          state: started
