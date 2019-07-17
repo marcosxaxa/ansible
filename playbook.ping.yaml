@@ -2,6 +2,10 @@
   name: Ping localhost
   hosts: all
   gather_facts: no
+  vars:
+    - name: Disable ssh verification
+      value: ANSIBLE_HOST_KEY_CHECKING=False
+
   tasks:
     -
       name: 'Ensure python is installed'
