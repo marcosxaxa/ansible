@@ -1,0 +1,23 @@
+-
+  name: Update ubuntu server
+  hosts: ubuntu
+  gather_facts: no
+  become: yes
+  vars:
+    packages:
+      - vim
+      - net-tools
+      - curl
+  tasks:
+    -
+      name: 'Ensure python is present'
+      raw:  'apt install -y python'
+    -
+      name: Update using apt Update
+      apt:
+        update_cache: yes
+    -
+      name: Install initial packages
+      apt:
+        name: '{{ packages }}'
+        state: latest
