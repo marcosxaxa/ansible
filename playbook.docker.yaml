@@ -21,7 +21,7 @@
     -
       name: Install packages
       yum:
-        name: "{{ items }}"
+        name: '{{ item }}'
         state: latest
       with_items: '{{ packages }}'
 
