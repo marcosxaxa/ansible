@@ -13,5 +13,11 @@ kube-node1 ansible_host=192.168.45 ansible_user=root ansible_password=ansible
 kube-node2 ansible_host=192.168.46 ansible_user=root ansible_password=ansible
 
 [ubuntu_vm]
-ubuntu_vm1  ansible_host=127.0.0.1  ansible_port=2222 ansible_user=root ansible_password=ansible
-ubuntu_vm2  ansible_host=127.0.0.1  ansible_port=2223 ansible_user=root ansible_password=ansible
+ubuntu_vm1 ansible_host=172.17.0.2
+ubuntu_vm2 ansible_host=172.17.0.3
+ubuntu_vm3 ansible_host=172.17.0.4
+
+[ubuntu_vm:vars]
+ansible_user=root
+ansible_password=ansible
+ANSIBLE_HOST_KEY_CHECKING=False
