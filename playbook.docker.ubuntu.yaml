@@ -1,6 +1,6 @@
 -
   name: Update ubuntu server
-  hosts: ubuntu
+  hosts: all
   gather_facts: no
   become: yes
   vars:

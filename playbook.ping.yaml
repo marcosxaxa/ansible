@@ -1,9 +1,11 @@
 -
   name: Ping localhost
-  hosts: ubuntu
+  hosts: all
+  gather_facts: no
   tasks:
-
-
+    -
+      name: 'Ensure python is installed'
+      raw: 'apt-get install python -y'
     -
       name: Ping localhost server
       ping:
