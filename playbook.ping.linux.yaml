@@ -1,7 +1,7 @@
 -
   name: Ping servers
   hosts: linux
-  gather_facts: no
+  gather_facts: yes
 
   tasks:
 
