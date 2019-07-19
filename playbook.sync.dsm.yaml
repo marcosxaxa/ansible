@@ -1,0 +1,12 @@
+---
+  -
+    name: Copy files from remote to remote
+    hosts: ubuntu_docker
+    become: yes
+    tasks:
+      -
+        name: copy the file
+        synchronize:
+          src: /opt/programas/tsm/dsm.sys
+          dest: /tmp
+        delegate_to: ubuntu_vm1
