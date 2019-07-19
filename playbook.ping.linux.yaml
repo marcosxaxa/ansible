@@ -1,0 +1,10 @@
+-
+  name: Ping servers
+  hosts: linux
+  gather_facts: no
+
+  tasks:
+
+    -
+      name: Ping localhost server
+      ping:

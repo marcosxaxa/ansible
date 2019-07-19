@@ -1,0 +1,12 @@
+-
+  name: Ping servers
+  hosts: linux
+  gather_facts: no
+
+  tasks:
+    -
+      name: 'Ensure python is installed'
+      raw: 'apt-get install python -y'
+    -
+      name: 'Ensure python is installed'
+      raw: 'yum install python -y'

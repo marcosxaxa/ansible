@@ -8,21 +8,20 @@ ubuntu3 ansible_host=192.168.0.42 ansible_port=2224 ansible_user=root ansible_pa
 ubuntu4 ansible_host=192.168.0.42 ansible_port=2225 ansible_user=root ansible_password=ansible
 
 [kubernetes]
-kube-master ansible_host=192.168.44 ansible_user=root ansible_password=ansible
-kube-node1 ansible_host=192.168.45 ansible_user=root ansible_password=ansible
-kube-node2 ansible_host=192.168.46 ansible_user=root ansible_password=ansible
+kube-master ansible_host=192.168.44
+kube-node1 ansible_host=192.168.45
+kube-node2 ansible_host=192.168.46
 
 [ubuntu_docker]
 ubuntu_vm1 ansible_host=172.17.0.2
 ubuntu_vm2 ansible_host=172.17.0.3
 ubuntu_vm3 ansible_host=172.17.0.4
 
-[ubuntu_docker:vars]
-ansible_user=root
-ansible_password=ansible
+[centos_docker]
+centos_vm1 ansible_host=172.17.0.5
+centos_vm2 ansible_host=172.17.0.6
+centos_vm3 ansible_host=172.17.0.7
 
 [linux:children]
 ubuntu_docker
-
-[all:vars]
-ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+centos_docker

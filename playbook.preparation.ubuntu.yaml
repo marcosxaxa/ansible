@@ -1,0 +1,39 @@
+---
+  -
+    name: Package installation
+    hosts: linux
+    gather_facts: yes
+    vars_prompt:
+      - name: package
+        private: no
+
+    tasks:
+      -
+        name: Ubuntu - Update cache
+        apt:
+           update_cache: yes
+        when: ansible_distribution == "Ubuntu"
+    #  -
+      #  name: Install package message
+    #    debug:
+    #        msg: Installing package {{ package }}
+      -
+        name: Centos - Update cache
+        yum:
+          name: '*'
+          state: latest
+        when: ansible_distribution == "CentOS"
+
+      -
+        name: Ubuntu - Install package {{ package }}
+        apt:
+          name: '{{ package }}'
+          state: latest
+        when: ansible_distribution == "Ubuntu"
+
+      -
+        name: Centos - Install package {{ package }}
+        yum:
+          name: '{{ package }}'
+          state: latest
+        when: ansible_distribution == "CentOS"
