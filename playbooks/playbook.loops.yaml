@@ -1,0 +1,48 @@
+-
+  name: Try a loop
+  hosts: linux
+  become: yes
+  vars:
+    packages:
+      - vim
+      - lynx
+
+  tasks:
+#    -
+#      name: Update sources
+#      apt:
+#        update_cache: yes
+#      when: ansible_distribution == "Ubuntu"
+
+    -
+      name: Install packages
+      apt:
+        name: "{{ item }}"
+        state: latest
+      with_items: '{{ packages }}'
+      when: ansible_distribution == "Ubuntu"
+    -
+      name: Create users
+      user:
+        name: "{{ item.1 }}"
+        comment: "{{ item.1 | title }} {{ item.0.surname }}"
+      with_subelements:
+        -
+          - surname: Xaxa
+            members:
+              - marcos
+              - gustavo
+          - surname: Belgas
+            members:
+              - brenna
+        - members
+    -
+      name: Create user directories
+      file:
+        dest: "/home/{{ item.0 }}/{{ item.1 }}"
+        owner: "{{ item.0 }}"
+        group: "{{ item.0 }}"
+        state: directory
+      with_nested:
+        - ['marcos', 'gustavo', 'brenna']
+        - ['classes', 'games']
