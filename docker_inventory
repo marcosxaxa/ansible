@@ -1,8 +1,18 @@
 [linux]
+<<<<<<< HEAD
 ubuntu-b417ccde0171 ansible_host=172.18.0.12
 ubuntu-275eac97befb ansible_host=172.18.0.11
 ubuntu-05e9b7b5db3d ansible_host=172.18.0.10
 ubuntu-36662eb0dd0b ansible_host=172.18.0.9
 ubuntu-0e6984d63317 ansible_host=172.18.0.8
 ubuntu-d952c9b15c3d ansible_host=172.18.0.7
+=======
+ubuntu-db745514135c ansible_host=172.17.0.7
+ubuntu-63cbaeaedf00 ansible_host=172.17.0.6
+ubuntu-ef1bed387877 ansible_host=172.17.0.5
+ubuntu-b8e2b2d321e8 ansible_host=172.17.0.4
+ubuntu-067cabad319c ansible_host=172.17.0.3
+ubuntu-42f92350d5a8 ansible_host=172.17.0.2
+awx                 ansible_host=172.18.0.5
+>>>>>>> 4d4c5e5e3a586562bc3e5b3fce1185b9dbd92e19
 
