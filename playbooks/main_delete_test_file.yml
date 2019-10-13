@@ -7,18 +7,17 @@
     - name: create /tmp dir
       file:
         path: /tmp/my_dir/
-        state: directory
+        state: absent
       
-    - name: creates a empty file on newly create dir
-      file:
-        path: /tmp/my_dir/new_file.txt
-        state: touch
-        mode: '644'
+    # - name: creates a empty file on newly create dir
+    #   file:
+    #     path: /tmp/my_dir/new_file.txt
+    #     state: touch
+    #     mode: '644'
 
     - name: show file created
-      shell: "ls -la /tmp/my_dir/*"
+      shell: "ls -la /tmp/"
       register: ls_result
 
     - name: list new directory
-      debug: msg=" {{ ls_result.stdout }}"     
-
+      debug: msg=" {{ ls_result.stdout }}"  
