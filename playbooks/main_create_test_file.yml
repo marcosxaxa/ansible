@@ -1,0 +1,21 @@
+---
+- name: Creates a test and empty file on target hosts
+  hosts: " {{ maquinas }}"
+  become: yes
+  tasks:
+
+    - name: create /tmp dir
+      file:
+        path: /tmp/my_dir/
+        state: directory
+      
+    - name: creates a empty file on newly create dir
+      file:
+        path: /tmp/my_dir/new_file.txt
+        state: touch
+        mode: '644'
+
+    - name: show file created
+      shell: "ls -la /tmp/my_dir/*"
+     
+
