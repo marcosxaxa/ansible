@@ -1,13 +1,13 @@
 [linux]
-centos-ee8a4d9aaa44 ansible_host=172.17.0.13
-centos-9f7f61062e3c ansible_host=172.17.0.12
-centos-800b10eb118c ansible_host=172.17.0.11
-centos-c14680709de3 ansible_host=172.17.0.10
-centos-d7ad0e8ec802 ansible_host=172.17.0.9
-centos-a9845101ec3b ansible_host=172.17.0.8
-ubuntu-774643439dc1 ansible_host=172.17.0.7
-ubuntu-a3f4a8310b61 ansible_host=172.17.0.6
-ubuntu-27264e29186d ansible_host=172.17.0.5
-ubuntu-baccfa762721 ansible_host=172.17.0.4
-ubuntu-118b0b373eda ansible_host=172.17.0.3
-ubuntu-315310ed17f0 ansible_host=172.17.0.2
+ubuntu-b3fb47b95e20 ansible_host=172.17.0.13
+ubuntu-07a3060a3ff1 ansible_host=172.17.0.12
+ubuntu-fb963e3242fc ansible_host=172.17.0.11
+ubuntu-c1962a7cfd4d ansible_host=172.17.0.10
+ubuntu-7df16fd9c673 ansible_host=172.17.0.9
+ubuntu-d908d81893ed ansible_host=172.17.0.8
+centos-e7d9e77a429c ansible_host=172.17.0.7
+centos-bca40e54e0f5 ansible_host=172.17.0.6
+centos-9821e516d704 ansible_host=172.17.0.5
+centos-e13bf801c620 ansible_host=172.17.0.4
+centos-ee08bbbe2fda ansible_host=172.17.0.3
+centos-c630c1aaedc7 ansible_host=172.17.0.2
