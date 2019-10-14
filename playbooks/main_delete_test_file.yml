@@ -4,7 +4,7 @@
   become: yes
   tasks:
 
-    - name: create /tmp dir
+    - name: Delete /tmp dir
       file:
         path: /tmp/my_dir/
         state: absent
@@ -15,9 +15,9 @@
     #     state: touch
     #     mode: '644'
 
-    - name: show file created
-      shell: "ls -la /tmp/"
+    - name: show /tmp
+      shell: "ls -la /tmp/*"
       register: ls_result
 
-    - name: list new directory
-      debug: msg=" {{ ls_result.stdout }}"  
+    - name: list /tmp directory
+      debug: msg=" {{ ls_result.stdout_lines }}"  

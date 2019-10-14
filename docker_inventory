@@ -5,4 +5,5 @@ ubuntu-05e9b7b5db3d ansible_host=172.18.0.10
 ubuntu-36662eb0dd0b ansible_host=172.18.0.9
 ubuntu-0e6984d63317 ansible_host=172.18.0.8
 ubuntu-d952c9b15c3d ansible_host=172.18.0.7
+centos_vm           ansible_host=192.168.15.14
 
