@@ -1,0 +1,28 @@
+---
+  -
+    name: Copiar arquivos do ftp para os servidores
+    hosts: publicador
+    tasks:
+
+      -
+        name: Copia o arquivo determinado para o servidor local do ansible
+        run_once: yes
+        fetch:
+          src: /opt/files/standalone.xml
+          dest: ~/DevOps/Personal/ansible/
+          flat: yes
+  -
+    name: Copiar arquivo do servidor local para os servidores de destino
+    hosts: linux
+    tasks:
+      -
+        name: Criar diretorio caso não exista
+        file:
+          path: /opt/programas/jboss/
+          state: directory
+          mode: 0644
+      -
+        name: Copiar os arquivos do servidor local para o diretório criado
+        copy:
+          src: ~/DevOps/Personal/ansible/standalone.xml
+          dest: /opt/programas/jboss/

@@ -1,0 +1,9 @@
+-
+  name: Delete files during tests
+  hosts: linux
+  tasks:
+    -
+      name: Delete the files that were copied during test
+      file:
+        path: /opt/programas/jboss/standalone.conf
+        state: absent
