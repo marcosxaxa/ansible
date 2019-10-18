@@ -1,7 +1,7 @@
 ---
   -
     name: Package installation
-    hosts: linux
+    hosts: "{{ maquinas }}"
     gather_facts: yes
     vars_prompt:
       - name: package

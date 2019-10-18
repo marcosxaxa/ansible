@@ -1,6 +1,6 @@
 -
   name: Ping servers
-  hosts: linux
+  hosts: "{{ maquinas }}"
   gather_facts: yes
 
   tasks:
