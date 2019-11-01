@@ -1,7 +1,0 @@
-[linux]
-ubuntu-9cfdf3743eee ansible_host=172.18.0.12
-ubuntu-12e22a6b274a ansible_host=172.18.0.11
-ubuntu-5b3cac6fc09c ansible_host=172.18.0.10
-ubuntu-9d316d059eba ansible_host=172.18.0.9
-ubuntu-310c97e20bff ansible_host=172.18.0.8
-ubuntu-a443c094fe3b ansible_host=172.18.0.7
